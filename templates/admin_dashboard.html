@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for the admin dashboard */
+    /* You can add your own styles here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    .sidebar {
+      background-color: #333;
+      color: #fff;
+      height: 100vh;
+    }
+    .sidebar-heading {
+      padding: 10px 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .list-group-item {
+      background-color: #333;
+      border-color: #333;
+    }
+    .list-group-item:hover {
+      background-color: #555;
+    }
+    .content {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-md-2 sidebar">
+        <div class="sidebar-heading">Admin Panel</div>
+        <ul class="list-group list-group-flush">
+          <li><a href="{% url 'admin_dashboard' %}">Dashboard</a></li>
+          <li><a href="#" class="active">Users</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Orders</a></li>
+          <li><a href="#">Settings</a></li>
+          <li>
+            <form method="post" action="{% url 'admin_dashboard' %}">
+              {% csrf_token %}
+              <button type="submit" name="show_menu_table" value="true" class="btn btn-link">Menu</button>
+            </form>
+          </li>
+          <li>
+            <form method="post" action="{% url 'admin_dashboard' %}">
+              {% csrf_token %}
+              <button type="submit" name="show_badge_table" value="true" class="btn btn-link">Badge</button>
+            </form>
+          </li>
+          <li><a href="{% url 'index' %}">Logout</a></li>
+        </ul>
+      </nav>
+      <div class="col-md-10 content">
+        <h1>Dashboard</h1>
+<!--        <p>Welcome to the admin dashboard!</p>-->
+          {% if show_menu_table %}
+          {% include 'menu_table.html' %}
+        {% elif show_badge_table %}
+          {% include 'badge_table.html' %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

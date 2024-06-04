@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Login - Your Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Inner CSS -->
+    <style>
+        .login-container {
+            background: url('images/background.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto; /* Center the container horizontally */
+            margin-top: 100px; /* Adjust the top margin to center vertically */
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: black; /* Optionally set text color to white */
+        }
+
+        .login-container label {
+            display: block;
+            margin-bottom: 8px;
+            color: black; /* Optionally set text color to white */
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: lightblue;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: grey;
+        }
+
+        .login-container p {
+            text-align: center;
+            margin-top: 10px;
+            color: black; /* Optionally set text color to white */
+        }
+
+        .login-container a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        span {
+            color: red; /* Set the color to red */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="login-container">
+                    <h2>Login</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <span>{{error}}</span>
+
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+
+                        <p><a href="{% url 'forgot-password' %}">Forgot Password?</a></p>
+
+                        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html>-->
+
+<!--<head>-->
+<!--    <title>Login - Your Website</title>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+
+<!--    &lt;!&ndash; Inner CSS &ndash;&gt;-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f4f4f4;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            height: 100vh;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--        }-->
+
+<!--        .login-container {-->
+<!--            background-color: white;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 8px;-->
+<!--            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);-->
+<!--            width: 300px;-->
+<!--        }-->
+
+<!--        .login-container h2 {-->
+<!--            text-align: center;-->
+<!--            margin-bottom: 20px;-->
+<!--            font-size: 24px;-->
+<!--        }-->
+
+
+
+<!--        .login-container label {-->
+<!--            display: block;-->
+<!--            margin-bottom: 8px;-->
+<!--        }-->
+
+<!--        .login-container input[type="text"],-->
+<!--        .login-container input[type="password"] {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            margin-bottom: 12px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            border-radius: 4px;-->
+<!--        }-->
+
+<!--        .login-container button {-->
+<!--            width: 100%;-->
+<!--            padding: 10px;-->
+<!--            background-color: #007bff;-->
+<!--            color: white;-->
+<!--            border: none;-->
+<!--            border-radius: 4px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
+
+<!--        .login-container button:hover {-->
+<!--            background-color: #0056b3;-->
+<!--        }-->
+
+<!--        .login-container p {-->
+<!--            text-align: center;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+
+<!--        .login-container a {-->
+<!--            color: #007bff;-->
+<!--            text-decoration: none;-->
+<!--        }-->
+
+<!--        .login-container a:hover {-->
+<!--            text-decoration: underline;-->
+<!--        }-->
+
+<!--        span {-->
+
+<!--    color: red; /* Set the color to red */-->
+<!--}-->
+
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <div class="login-container">-->
+<!--        <h2>Login</h2>-->
+<!--        <form method="post">-->
+<!--            {% csrf_token %}-->
+<!--            <span>{{error}}</span>-->
+
+<!--            <label for="username">Username:</label>-->
+<!--            <input type="text" id="username" name="username" required>-->
+
+<!--            <label for="password">Password:</label>-->
+<!--            <input type="password" id="password" name="password" required>-->
+
+<!--            <button type="submit">Login</button>-->
+
+<!--            <p><a href="{% url 'forgot-password' %}">Forgot Password?</a></p>-->
+
+<!--            <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</body>-->
+
+<!--</html>-->
