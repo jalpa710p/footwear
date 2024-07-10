@@ -66,9 +66,6 @@ def women(request):
     view_all_product = ViewAllProduct.objects.all()
     products = Product.objects.all()
     womenimage = WomenImage.objects.all()
-
-
-
     return render(request, 'women.html', context={'partners': partners,
                                                   'view_all_products': view_all_product,
                                                   'products': products,

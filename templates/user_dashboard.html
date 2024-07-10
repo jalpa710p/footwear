@@ -64,9 +64,9 @@
 <body>
     <!-- Navigation bar -->
     <div class="nav-bar">
-        <a href="#profile">Profile</a>
-        <a href="#settings">Settings</a>
-        <a href="#logout">Logout</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="{% url 'index'%}">Logout</a>
     </div>
 
     <!-- Container for the dashboard content -->
@@ -91,7 +91,7 @@
         <!-- Logout link -->
         <div id="logout" class="dashboard-section">
             <h2>Logout</h2>
-            <p><a href="#">Click here to log out</a></p>
+            <p><a href="{% url 'index' %}">Click here to log out</a></p>
         </div>
     </div>
 </body>
