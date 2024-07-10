@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from .models import *
 
-
 def admin_dashboard(request):
     show_menu_table = False
     show_badge_table = False
