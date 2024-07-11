@@ -90,6 +90,12 @@ class ProductImageMen(admin.ModelAdmin):
 class CartSeller(admin.ModelAdmin):
     list_display = ['image', 'title', 'price']
 
+@admin.register(Cart)
+class Cartproduct(admin.ModelAdmin):
+    list_display = ['image','name', 'price', 'quantity', 'total']
+
+
+
 @admin.register(AddImage)
 class AddWishlist(admin.ModelAdmin):
     list_display = ['image', 'title', 'price']

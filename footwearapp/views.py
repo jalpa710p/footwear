@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from .models import *
+from django.http import JsonResponse
+
 
 def admin_dashboard(request):
     show_menu_table = False
@@ -87,19 +89,60 @@ def contact(request):
 
 def add(request):
     addimage = AddImage.objects.all()
-    return render(request, 'add-to-wishlist.html', {'addimage': addimage})
+    cart_items = Cart.objects.all()
+    return render(request, 'add-to-wishlist.html', {'addimage': addimage,
+                                                    'cart_items': cart_items})
 
 
 def cart(request):
     sellers = Seller.objects.all()
+    cart_items = Cart.objects.all()
+    subtotal = sum(i.total for i in cart_items)
+    
+    delivery = 0.00
+    discount = 45.00
 
-    return render(request, 'cart.html',
+    total = subtotal + delivery - discount
 
-                  {'sellers': sellers})
+    return render(request, 'cart.html', {'sellers': sellers,
+                                        'cart_items': cart_items,
+                                        'subtotal': subtotal,
+                                        'delivery': delivery,
+                                        'discount': discount,
+                                        'total': total})
+
+
+
+    
+def remove_cart(request,id):
+    Cart.objects.get(id=id).delete()
+    cart_items = Cart.objects.all()
+    return render(request, 'cart.html', context={'cart_items': cart_items})
+
+    # if request.method == "POST":
+    #     try:
+    #         cart_item = Cart.objects.get(id=id)
+    #         cart_item.delete()
+    #         return JsonResponse({'status': 'success'})
+    #     except Cart.DoesNotExist:
+    #         return JsonResponse({'status': 'error', 'message': 'Item does not exist'}, status=404)
+    # return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
 
 
 def checkout(request):
-    return render(request, 'checkout.html')
+    cart_items = Cart.objects.all()
+    subtotal = sum(i.total for i in cart_items)
+    
+    delivery = 0.00
+    discount = 45.00
+
+    total = subtotal + delivery - discount
+
+    return render(request, 'checkout.html',context={'cart_items': cart_items,
+                                                    'subtotal': subtotal,
+                                                    'delivery': delivery,
+                                                    'discount': discount,
+                                                    'total': total})
 
 
 def order(request):

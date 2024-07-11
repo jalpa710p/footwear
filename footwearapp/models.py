@@ -154,6 +154,17 @@ class Sellerimage(models.Model):
     name = models.CharField(max_length=30)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
+class Cart(models.Model):
+    image = models.ImageField(upload_to='carts/')
+    name = models.CharField(max_length=40)
+    price = models.IntegerField()
+    quantity = models.IntegerField()
+    
+    @property
+    def total(self):
+        return self.price * self.quantity
+    
+
 class AddImage(models.Model):
     image = models.ImageField(upload_to='addimage/')
     title = models.CharField(max_length=100)

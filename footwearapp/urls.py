@@ -29,6 +29,8 @@ urlpatterns = [
     path('edit_badge/<int:id>/', views.edit_badge, name='edit_badge'),
     path('delete_badge/<int:id>/', views.delete_badge, name='delete_badge'),
     path('menu_table/', views.menu_table, name='menu_table'),
+    path('remove_cart/<int:id>/', views.remove_cart, name='remove_cart'),
+
 
 ]
 
