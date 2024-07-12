@@ -15,15 +15,17 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                {% for men_image in menimage %}
-                <div class="breadcrumbs-img" style="background-image: url({{ men_image.image.url }});">
-                    <h2>{{ men_image.name }}</h2>
-                </div>
-                {% endfor %}
+                {% if men_image %}
+                    <div class="breadcrumbs-img" style="background-image: url({{ men_image.image.url }});">
+                        <h2>Men's</h2>
+                    </div>
+                {% endif %}
+
                 <div class="menu text-center">
                     <p><a href="#">New Arrivals</a> <a href="#">Best Sellers</a> <a href="#">Extended Widths</a> <a href="#">Sale</a></p>
                 </div>
             </div>
+                					
         </div>
     </div>
 </div>
@@ -32,11 +34,11 @@
 <div class="colorlib-featured">
     <div class="container">
         <div class="row">
-            {% for product in products %}
+            {% for i in products %}
             <div class="col-sm-4 text-center">
                 <div class="featured">
-                    <div class="featured-img featured-img-2" style="background-image: url({{ product.image.url }});">
-                        <h2>{{ product.category }}</h2>
+                    <div class="featured-img featured-img-2" style="background-image: url({{ i.image.url }});">
+                        <h2>{{ i.category }}</h2>
                         <p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
                     </div>
                 </div>
@@ -55,20 +57,22 @@
             </div>
         </div>
         <div class="row row-pb-md">
-            {% for product in view_all_products %}
-            <div class="col-md-3 col-lg-3 mb-4 text-center">
-                <div class="product-entry border">
-                    <a href="#" class="prod-img">
-                        <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.title }}">
-                    </a>
-                    <div class="desc">
-                        <h2><a href="#">{{ product.title }}</a></h2>
-                        <span class="price">${{ product.price }}</span>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+			{% for i in best_sellers %}
+
+			<div class="col-lg-3 mb-4 text-center">
+				<div class="product-entry border">
+					<a href="#" class="prod-img">
+						<img src="{{ i.image.url }}" class="img-fluid" alt="{{ product.title }}">
+					</a>
+					<div class="desc">
+						  <h2><a href="#">{{ i.title }}</a></h2>
+						<span class="price">${{ i.price }}</span>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="block-27">
@@ -97,15 +101,14 @@
             </div>
         </div>
         <div class="row">
-            {% for partner in partners %}
-            <div class="col partner-col text-center">
-                <img src="{{ partner.image.url }}" class="img-fluid" alt="Partner Brand">
-            </div>
-            {% endfor %}
+            {% for i in partners %}
+			<div class="col partner-col text-center">
+				<img src="{{ i.image.url }}" class="img-fluid" alt="Partner Brand">
+			</div>
+			{% endfor %}
         </div>
     </div>
 </div>
-
 
     {% endblock %}
 

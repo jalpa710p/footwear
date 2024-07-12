@@ -42,24 +42,14 @@ class ImagePartner(admin.ModelAdmin):
     list_display = ['image']
 
 
-@admin.register(ViewAllProduct)
-class ImageSeller(admin.ModelAdmin):
-    list_display = ['image', 'title', 'price']
-
-
 @admin.register(Product)
 class CategoryImage(admin.ModelAdmin):
     list_display = ['category', 'image']
 
-
 @admin.register(MenImage)
-class MenImage(admin.ModelAdmin):
-    list_display = ['name', 'image']
+class MenImagePage(admin.ModelAdmin):
+    list_display = ['image']
 
-
-@admin.register(WomenImage)
-class WomenImage(admin.ModelAdmin):
-    list_display = ['name', 'image']
 
 
 @admin.register(AboutPage)
@@ -77,9 +67,9 @@ class GetInTouchContact(admin.ModelAdmin):
     list_display = ['fname', 'lname', 'email', 'subject', 'message']
 
 
-@admin.register(ProductDetail)
-class ProductDetailMen(admin.ModelAdmin):
-    list_display = ['name', 'price', 'description', 'rating']
+@admin.register(Productreview)
+class ProductReviews(admin.ModelAdmin):
+    list_display = ['image', 'name', 'date', 'description']
 
 
 @admin.register(ProductImage)

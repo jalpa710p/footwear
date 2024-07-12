@@ -1,8 +1,6 @@
 {% extends 'Base/base.html' %}
 {% block start %}
 
-
-
 <div class="breadcrumbs">
 	<div class="container">
 		<div class="row">
@@ -17,11 +15,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				{% for women_image in womenimage %}
+				{%  if women_image %}
                 <div class="breadcrumbs-img" style="background-image: url({{ women_image.image.url }});">
-					<h2>{{ women_image.name }}</h2>
+					<h2>Women's</h2>
 				</div>
-				{% endfor %}
+				{% endif %}
 				<div class="menu text-center">
 					<p><a href="#">New Arrivals</a> <a href="#">Best Sellers</a> <a href="#">Extended Widths</a> <a href="#">Sale</a></p>
 				</div>
@@ -33,16 +31,17 @@
 <div class="colorlib-featured">
 	<div class="container">
 		<div class="row">
-			{% for product in products %}
-			<div class="col-sm-4 text-center">
-				<div class="featured">
-                    <div class="featured-img featured-img-2" style="background-image: url({{ product.image.url }});">
-                        <h2>{{ product.category }}</h2>
-						<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-					</div>
-				</div>
-			</div>
-			{% endfor %}
+			{% for i in products %}
+            <div class="col-sm-4 text-center">
+                <div class="featured">
+                    <div class="featured-img featured-img-2" style="background-image: url({{ i.image.url }});">
+                        <h2>{{ i.category }}</h2>
+                        <p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+		
 		</div>
 	</div>
 </div>
@@ -147,16 +146,16 @@
 			</div>
 			<div class="col-lg-9 col-xl-9">
 				<div class="row row-pb-md">
-					{% for product in view_all_products %}
+					{% for i in best_sellers %}
 
-					<div class="col-lg-4 mb-4 text-center">
+					<div class="col-lg-3 mb-4 text-center">
 						<div class="product-entry border">
 							<a href="#" class="prod-img">
-                        		<img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.title }}">
+								<img src="{{ i.image.url }}" class="img-fluid" alt="{{ product.title }}">
 							</a>
 							<div class="desc">
-								<h2><a href="#">{{ product.title }}</a></h2>
-                        		<span class="price">${{ product.price }}</span>
+								<h2><a href="#">{{ i.title }}</a></h2>
+								<span class="price">${{ i.price }}</span>
 							</div>
 						</div>
 					</div>

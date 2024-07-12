@@ -54,24 +54,29 @@ def menu(request):
 
 def men(request):
     partners = Partner.objects.all()
-    view_all_product = ViewAllProduct.objects.all()
     products = Product.objects.all()
-    menimage = MenImage.objects.all()
-    return render(request, 'men.html', context={'partners': partners,
-                                                'view_all_products': view_all_product,
-                                                'products': products,
-                                                'menimage': menimage
-                                                })
+    men_image = MenImage.objects.last() 
+    best_sellers = BestSeller.objects.all()
+    partners = Partner.objects.all()
 
+    return render(request, 'men.html', context={'men_image': men_image,
+                                                'products': products,
+                                                'best_sellers': best_sellers,
+                                                'partners': partners
+                                                })
+        
+    
+                                            
+                                            
 def women(request):
     partners = Partner.objects.all()
-    view_all_product = ViewAllProduct.objects.all()
+    best_sellers = BestSeller.objects.all()
     products = Product.objects.all()
-    womenimage = WomenImage.objects.all()
+    women_image = MenImage.objects.last() 
     return render(request, 'women.html', context={'partners': partners,
-                                                  'view_all_products': view_all_product,
-                                                  'products': products,
-                                                  'womenimage': womenimage
+                                                 'best_sellers': best_sellers,
+                                                 'products': products,
+                                                  'women_image': women_image
                                                   })
 
 def about(request):
@@ -119,20 +124,10 @@ def remove_cart(request,id):
     cart_items = Cart.objects.all()
     return render(request, 'cart.html', context={'cart_items': cart_items})
 
-    # if request.method == "POST":
-    #     try:
-    #         cart_item = Cart.objects.get(id=id)
-    #         cart_item.delete()
-    #         return JsonResponse({'status': 'success'})
-    #     except Cart.DoesNotExist:
-    #         return JsonResponse({'status': 'error', 'message': 'Item does not exist'}, status=404)
-    # return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
-
 
 def checkout(request):
     cart_items = Cart.objects.all()
     subtotal = sum(i.total for i in cart_items)
-    
     delivery = 0.00
     discount = 45.00
 
@@ -151,8 +146,10 @@ def order(request):
 
 def product_detail(request):
     images = ProductImage.objects.all()
+    review =Productreview.objects.all()
     return render(request, 'product_detail.html', context={
-                                                           'images': images})
+                                                           'images': images,
+                                                           'review': review})
 
 
 def login(request):

@@ -41,12 +41,12 @@
 <div class="colorlib-product">
 	<div class="container-fluid">
 		<div class="row">
-			{% for featured in featured_images %}
+			{% for i in featured_images %}
 				<div class="col-sm-6 text-center">
 					<div class="featured">
-						<a href="#" class="featured-img" style="background-image: url({{ featured.image.url }});"></a>
+						<a href="#" class="featured-img" style="background-image: url({{ i.image.url }});"></a>
 						<div class="desc">
-							<h2><a href="#">{{ featured.text }}</a></h2>
+							<h2><a href="#">{{ i.text }}</a></h2>
 						</div>
 					</div>
 				</div>
@@ -64,16 +64,16 @@
 			</div>
 		</div>
 		<div class="row row-pb-md">
-			{% for product in best_sellers %}
+			{% for i in best_sellers %}
 
 			<div class="col-lg-3 mb-4 text-center">
 				<div class="product-entry border">
 					<a href="#" class="prod-img">
-						<img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.title }}">
+						<img src="{{ i.image.url }}" class="img-fluid" alt="{{ product.title }}">
 					</a>
 					<div class="desc">
-						  <h2><a href="#">{{ product.title }}</a></h2>
-						<span class="price">${{ product.price }}</span>
+						  <h2><a href="#">{{ i.title }}</a></h2>
+						<span class="price">${{ i.price }}</span>
 					</div>
 				</div>
 			</div>
@@ -96,10 +96,10 @@
 			</div>
 		</div>
 		<div class="row">
-			{% for partner in partners %}
+			{% for i in partners %}
 
 			<div class="col partner-col text-center">
-				<img src="{{ partner.image.url }}" class="img-fluid" alt="Partner Brand">
+				<img src="{{ i.image.url }}" class="img-fluid" alt="Partner Brand">
 			</div>
 			{% endfor %}
 		</div>

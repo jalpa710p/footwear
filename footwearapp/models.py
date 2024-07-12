@@ -33,7 +33,7 @@ class BadgeMenu(models.Model):
     id = models.AutoField(primary_key=True)
     badge = models.CharField(max_length=100)
 
-
+#  index
 class Slide(models.Model):
     image = models.ImageField(upload_to='slides/')
     head_1 = models.CharField(max_length=100)
@@ -50,8 +50,6 @@ class FeaturedImage(models.Model):
     image = models.ImageField(upload_to='featured/')
     text = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.text
 
 
 class BestSeller(models.Model):
@@ -59,48 +57,22 @@ class BestSeller(models.Model):
     title = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __str__(self):
-        return self.title
 
 
 class Partner(models.Model):
     image = models.ImageField(upload_to='partners/')
 
-    def __str__(self):
-        return f'Partner {self.id}'
 
-
-class ViewAllProduct(models.Model):
-    image = models.ImageField(upload_to='best_sellers/')
-    title = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return self.title
-
+# MenImage
+class MenImage(models.Model):
+    image = models.ImageField(upload_to='menimage/')
 
 
 class Product(models.Model):
     category = models.CharField(max_length=255)
     image = models.ImageField(upload_to='products/')
+    
 
-    def __str__(self):
-        return self.category
-
-class MenImage(models.Model):
-    name = models.CharField(max_length=50, default='')
-    image = models.ImageField(upload_to='menimage/')
-
-    def __str__(self):
-        return self.name
-
-
-class WomenImage(models.Model):
-    name = models.CharField(max_length=50, default='')
-    image = models.ImageField(upload_to='womenimage/')
-
-    def __str__(self):
-        return self.name
 
 
 class AboutPage(models.Model):
@@ -129,14 +101,14 @@ class GetInTouch(models.Model):
     message = models.CharField(max_length=50)
 
 
-class ProductDetail(models.Model):
-    name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    description = models.TextField()
-    rating = models.FloatField()
+# class ProductDetail(models.Model):
+#     name = models.CharField(max_length=255)
+#     price = models.DecimalField(max_digits=10, decimal_places=2)
+#     description = models.TextField()
+#     rating = models.FloatField()
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 class ProductImage(models.Model):
     image = models.ImageField(upload_to='products/')
@@ -146,8 +118,7 @@ class Seller(models.Model):
     title = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __str__(self):
-        return self.title
+  
 
 class Sellerimage(models.Model):
     image = models.ImageField(upload_to='sellerimage/')
@@ -172,3 +143,9 @@ class AddImage(models.Model):
 
     def __str__(self):
         return self.title
+
+class Productreview(models.Model):
+    image = models.ImageField(upload_to='review/')
+    name = models.CharField(max_length=50)
+    date = models.DateField()
+    description = models.TextField()
