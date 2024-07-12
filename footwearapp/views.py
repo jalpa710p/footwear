@@ -1,7 +1,78 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from .models import *
-from django.http import JsonResponse
+from .serializers import *
+from rest_framework import viewsets
+# from django.http import JsonResponse
+
+
+class RegisterViewSet(viewsets.ModelViewSet):
+    queryset = Register.objects.all()
+    serializer_class = RegisterSerializer
+
+class MenuModalViewSet(viewsets.ModelViewSet):
+    queryset = MenuModal.objects.all()
+    serializer_class = MenuModalSerializer
+
+class SubMenuViewSet(viewsets.ModelViewSet):
+    queryset = SubMenu.objects.all()
+    serializer_class = SubMenuSerializer
+
+class BadgeMenuViewSet(viewsets.ModelViewSet):
+    queryset = BadgeMenu.objects.all()
+    serializer_class = BadgeMenuSerializer
+
+class SlideViewSet(viewsets.ModelViewSet):
+    queryset = Slide.objects.all()
+    serializer_class = SlideSerializer
+
+class FeaturedImageViewSet(viewsets.ModelViewSet):
+    queryset = FeaturedImage.objects.all()
+    serializer_class = FeaturedImageSerializer
+
+class BestSellerViewSet(viewsets.ModelViewSet):
+    queryset = BestSeller.objects.all()
+    serializer_class = BestSellerSerializer
+
+class PartnerViewSet(viewsets.ModelViewSet):
+    queryset = Partner.objects.all()
+    serializer_class = PartnerSerializer
+
+class MenImageViewSet(viewsets.ModelViewSet):
+    queryset = MenImage.objects.all()
+    serializer_class = MenImageSerializer
+
+class WomenImageViewSet(viewsets.ModelViewSet):
+    queryset = WomenImage.objects.all()
+    serializer_class = WomenImageSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class AboutPageViewSet(viewsets.ModelViewSet):
+    queryset = AboutPage.objects.all()
+    serializer_class = AboutPageSerializer
+
+class ContactInfoViewSet(viewsets.ModelViewSet):
+    queryset = ContactInfo.objects.all()
+    serializer_class = ContactInfoSerializer
+
+class ProductImageViewSet(viewsets.ModelViewSet):
+    queryset = ProductImage.objects.all()
+    serializer_class = ProductImageSerializer
+
+class ProductReviewViewSet(viewsets.ModelViewSet):
+    queryset = Productreview.objects.all()
+    serializer_class = ProductReviewSerializer
+
+class CartViewSet(viewsets.ModelViewSet):
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
+
+class SellerViewSet(viewsets.ModelViewSet):
+    queryset = Seller.objects.all()
+    serializer_class = SellerSerializer
 
 
 def admin_dashboard(request):

@@ -76,8 +76,6 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/')
     
 
-
-
 class AboutPage(models.Model):
     video_url = models.URLField("Video URL", max_length=200)
     background_image = models.ImageField("Background Image", upload_to='about/')
