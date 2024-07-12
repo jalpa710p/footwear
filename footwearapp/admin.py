@@ -51,6 +51,10 @@ class MenImagePage(admin.ModelAdmin):
     list_display = ['image']
 
 
+@admin.register(WomenImage)
+class WomenImagePage(admin.ModelAdmin):
+    list_display = ['image']
+
 
 @admin.register(AboutPage)
 class AboutPageAdmin(admin.ModelAdmin):

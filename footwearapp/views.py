@@ -72,7 +72,7 @@ def women(request):
     partners = Partner.objects.all()
     best_sellers = BestSeller.objects.all()
     products = Product.objects.all()
-    women_image = MenImage.objects.last() 
+    women_image = WomenImage.objects.last() 
     return render(request, 'women.html', context={'partners': partners,
                                                  'best_sellers': best_sellers,
                                                  'products': products,

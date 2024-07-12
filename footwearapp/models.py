@@ -67,6 +67,9 @@ class Partner(models.Model):
 class MenImage(models.Model):
     image = models.ImageField(upload_to='menimage/')
 
+class WomenImage(models.Model):
+    image = models.ImageField(upload_to='womenimage/')
+
 
 class Product(models.Model):
     category = models.CharField(max_length=255)
@@ -102,7 +105,6 @@ class Productreview(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField()
     description = models.TextField()
-
 
 
 #wishlist
