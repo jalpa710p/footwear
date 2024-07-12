@@ -3,14 +3,14 @@ from .models import *
 
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
-        models = Register
-        fields = ['id','username', 'email', 'phone_no', 'password', 'confirm_password']
+        model = Register  # Corrected this line
+        fields = ['id', 'username', 'email', 'phone_no', 'password', 'confirm_password']
 
 
 class MenuModalSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuModal
-        fields = ['id','title', 'url', 'icon', 'badge']
+        fields = ['id', 'title', 'url', 'icon', 'badge']
 
 class SubMenuSerializer(serializers.ModelSerializer):
     class Meta:
@@ -55,7 +55,7 @@ class WomenImageSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id','category','image']
+        fields = ['id', 'category', 'image']
 
 class AboutPageSerializer(serializers.ModelSerializer):
     class Meta:
