@@ -62,14 +62,9 @@ class ContactInformation(admin.ModelAdmin):
     list_display = ['address', 'phone', 'email', 'website']
 
 
-@admin.register(GetInTouch)
-class GetInTouchContact(admin.ModelAdmin):
-    list_display = ['fname', 'lname', 'email', 'subject', 'message']
-
-
 @admin.register(Productreview)
 class ProductReviews(admin.ModelAdmin):
-    list_display = ['image', 'name', 'date', 'description']
+    list_display = ['image', 'name', 'date', ]
 
 
 @admin.register(ProductImage)
@@ -85,7 +80,3 @@ class Cartproduct(admin.ModelAdmin):
     list_display = ['image','name', 'price', 'quantity', 'total']
 
 
-
-@admin.register(AddImage)
-class AddWishlist(admin.ModelAdmin):
-    list_display = ['image', 'title', 'price']

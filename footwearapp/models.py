@@ -10,7 +10,7 @@ class Register(models.Model):
 
 
 class MenuModal(models.Model):
-    id = models.AutoField(primary_key=True)  # Corrected typo
+    id = models.AutoField(primary_key=True)  
     title = models.CharField(max_length=50)
     url = models.CharField(max_length=50)
     icon = models.CharField(max_length=100, blank=True, null=True)
@@ -81,9 +81,7 @@ class AboutPage(models.Model):
     title = models.CharField("Title", max_length=200)
     content = models.TextField("Content")
 
-    def __str__(self):
-        return self.title
-
+# contact
 class ContactInfo(models.Model):
     address = models.TextField()
     phone = models.CharField(max_length=20)
@@ -93,37 +91,22 @@ class ContactInfo(models.Model):
     def __str__(self):
         return f"Contact Information"
 
-class GetInTouch(models.Model):
-    fname = models.CharField(max_length=50)
-    lname = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    subject = models.CharField(max_length=50)
-    message = models.CharField(max_length=50)
 
-
-# class ProductDetail(models.Model):
-#     name = models.CharField(max_length=255)
-#     price = models.DecimalField(max_digits=10, decimal_places=2)
-#     description = models.TextField()
-#     rating = models.FloatField()
-
-#     def __str__(self):
-#         return self.name
-
+#   Productdetail
 class ProductImage(models.Model):
     image = models.ImageField(upload_to='products/')
 
-class Seller(models.Model):
-    image = models.ImageField(upload_to='sellers/')
-    title = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
 
-  
+class Productreview(models.Model):
+    image = models.ImageField(upload_to='review/')
+    name = models.CharField(max_length=50)
+    date = models.DateField()
+    description = models.TextField()
 
-class Sellerimage(models.Model):
-    image = models.ImageField(upload_to='sellerimage/')
-    name = models.CharField(max_length=30)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+
+#wishlist
+#cart
 
 class Cart(models.Model):
     image = models.ImageField(upload_to='carts/')
@@ -136,16 +119,11 @@ class Cart(models.Model):
         return self.price * self.quantity
     
 
-class AddImage(models.Model):
-    image = models.ImageField(upload_to='addimage/')
+class Seller(models.Model):
+    image = models.ImageField(upload_to='sellers/')
     title = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    def __str__(self):
-        return self.title
+  
+    
 
-class Productreview(models.Model):
-    image = models.ImageField(upload_to='review/')
-    name = models.CharField(max_length=50)
-    date = models.DateField()
-    description = models.TextField()

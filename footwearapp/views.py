@@ -93,9 +93,9 @@ def contact(request):
 
 
 def add(request):
-    addimage = AddImage.objects.all()
+    Sellers = Seller.objects.all()
     cart_items = Cart.objects.all()
-    return render(request, 'add-to-wishlist.html', {'addimage': addimage,
+    return render(request, 'add-to-wishlist.html', {'sellers': Sellers ,
                                                     'cart_items': cart_items})
 
 

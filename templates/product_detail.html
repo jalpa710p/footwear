@@ -17,12 +17,12 @@
 				<div class="row row-pb-lg product-detail-wrap">
 					<div class="col-sm-8">
 						<div class="owl-carousel">
-                    	{% for image in images %}
+                    	{% for i in images %}
 
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-                                    	<img src="{{ image.image.url }}" class="img-fluid" alt="Product Image">
+                                    	<img src="{{ i.image.url }}" class="img-fluid" alt="Product Image">
 									</a>
 								</div>
 							</div>
